@@ -20,7 +20,8 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
         containerView.clipsToBounds = true
         containerView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        let attributedString = NSAttributedString(string: "Ainda nao tem uma conta? Crie uma.", attributes: [.font: Font.linkLabel])
+        let attributedString = NSMutableAttributedString(string: "Ainda nao tem uma conta? Crie uma.", attributes: [.font: Font.linkLabel])
+        attributedString.addAttribute(.link, value: "chatapp://createAccount", range: (attributedString.string as NSString).range(of: "Crie uma"))
     }
     
     override func viewDidLayoutSubviews() {
