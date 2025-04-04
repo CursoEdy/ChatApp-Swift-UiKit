@@ -124,7 +124,7 @@ class CreateAccountViewController: UIViewController {
             let homeVC = mainStoryboard.instantiateViewController(withIdentifier: "HomeViewController")
             let navVC = UINavigationController(rootViewController: homeVC)
             let window = UIApplication.shared.connectedScenes.flatMap { ($0 as? UIWindowScene)?.windows ?? []}.first {$0.isKeyWindow}
-            window?.rootViewController = homeVC
+            window?.rootViewController = navVC
         }
     }
 }
