@@ -102,13 +102,16 @@ class CreateAccountViewController: UIViewController {
             return
         }
         
+        showLoading()
         Database.database().reference().child("usernames").child("username").observeSingleEvent(of: .value) { snapshot in
             guard !snapshot.exists() else {
                 self.presentErroAlert(title: "username in use", message: "Please try a different username")
+                self.removeLoading()
                 return
             }
             
             Auth.auth().createUser(withEmail: email, password: password) { result, error in
+                self.removeLoading()
                 if let error = error {
                     print(error.localizedDescription)
                     self.presentErroAlert(title: "Create account failed", message: "Something went wrong. Please try again later.")
@@ -135,6 +138,7 @@ class CreateAccountViewController: UIViewController {
             }
         }
     }
+    
 }
 
 extension CreateAccountViewController: UITextViewDelegate{

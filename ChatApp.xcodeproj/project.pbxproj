@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		748228F12DA583070079C921 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 748228F02DA583070079C921 /* LoadingView.xib */; };
+		748228F32DA583480079C921 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748228F22DA583480079C921 /* LoadingView.swift */; };
 		748C5E982D96DB5D00763BB3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 748C5E972D96DB5D00763BB3 /* GoogleService-Info.plist */; };
 		748C5E9B2D96DBEB00763BB3 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 748C5E9A2D96DBEB00763BB3 /* FirebaseAuth */; };
 		748C5E9D2D96DBEB00763BB3 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 748C5E9C2D96DBEB00763BB3 /* FirebaseDatabase */; };
@@ -29,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		748228F02DA583070079C921 /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
+		748228F22DA583480079C921 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		748C5E972D96DB5D00763BB3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		74E7DA9C2D9D9ADF00EF8527 /* extension+UiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension+UiViewController.swift"; sourceTree = "<group>"; };
 		E12D57D62A6B3FD600D556EF /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
@@ -63,6 +67,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		748228EF2DA582E20079C921 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E12D57D62A6B3FD600D556EF /* PrimaryButton.swift */,
+				748228F02DA583070079C921 /* LoadingView.xib */,
+				748228F22DA583480079C921 /* LoadingView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		74E7DA9B2D9D9AA400EF8527 /* extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,9 +140,9 @@
 		E13089CB2A69FFEF00C1889D /* Design */ = {
 			isa = PBXGroup;
 			children = (
+				748228EF2DA582E20079C921 /* Components */,
 				E13089C32A69F24800C1889D /* Font.swift */,
 				E13089C12A69F02200C1889D /* Colors.xcassets */,
-				E12D57D62A6B3FD600D556EF /* PrimaryButton.swift */,
 				E12D58052A6CAE8F00D556EF /* Extension+UIColor.swift */,
 			);
 			path = Design;
@@ -199,6 +213,7 @@
 				E13089BC2A69EE7C00C1889D /* Auth.storyboard in Resources */,
 				E13089B42A69EDBB00C1889D /* LaunchScreen.storyboard in Resources */,
 				E13089B12A69EDBB00C1889D /* Assets.xcassets in Resources */,
+				748228F12DA583070079C921 /* LoadingView.xib in Resources */,
 				E13089AF2A69EDB600C1889D /* Main.storyboard in Resources */,
 				748C5E982D96DB5D00763BB3 /* GoogleService-Info.plist in Resources */,
 			);
@@ -214,6 +229,7 @@
 				E13089C82A69FC1700C1889D /* CreateAccountViewController.swift in Sources */,
 				E13089C42A69F24800C1889D /* Font.swift in Sources */,
 				E13089A82A69EDB600C1889D /* AppDelegate.swift in Sources */,
+				748228F32DA583480079C921 /* LoadingView.swift in Sources */,
 				E13089C62A69FBF400C1889D /* SignInViewController.swift in Sources */,
 				E12D57D72A6B3FD600D556EF /* PrimaryButton.swift in Sources */,
 				E13089CA2A69FCD300C1889D /* HomeViewController.swift in Sources */,
