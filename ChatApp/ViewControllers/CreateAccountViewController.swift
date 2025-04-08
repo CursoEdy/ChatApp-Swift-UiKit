@@ -102,29 +102,37 @@ class CreateAccountViewController: UIViewController {
             return
         }
         
-        Auth.auth().createUser(withEmail: email, password: password) { result, error in
-            if let error = error {
-                print(error.localizedDescription)
-                self.presentErroAlert(title: "Create account failed", message: "Something went wrong. Please try again later.")
-            }
-            guard let result = result else {
-                self.presentErroAlert(title: "Create account failed", message: "Something went wrong. Please try again later.")
+        Database.database().reference().child("usernames").child("username").observeSingleEvent(of: .value) { snapshot in
+            guard !snapshot.exists() else {
+                self.presentErroAlert(title: "username in use", message: "Please try a different username")
                 return
             }
             
-            let userId = result.user.uid
-            let usarDate: [String:Any] = [
-                "id": userId,
-                "username": username
-            ]
-            Database.database().reference().child("users").child(userId).setValue(usarDate)
-            
-            // router user to main screen
-            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let homeVC = mainStoryboard.instantiateViewController(withIdentifier: "HomeViewController")
-            let navVC = UINavigationController(rootViewController: homeVC)
-            let window = UIApplication.shared.connectedScenes.flatMap { ($0 as? UIWindowScene)?.windows ?? []}.first {$0.isKeyWindow}
-            window?.rootViewController = navVC
+            Auth.auth().createUser(withEmail: email, password: password) { result, error in
+                if let error = error {
+                    print(error.localizedDescription)
+                    self.presentErroAlert(title: "Create account failed", message: "Something went wrong. Please try again later.")
+                }
+                guard let result = result else {
+                    self.presentErroAlert(title: "Create account failed", message: "Something went wrong. Please try again later.")
+                    return
+                }
+                
+                let userId = result.user.uid
+                let userData: [String:Any] = [
+                    "id": userId,
+                    "username": username
+                ]
+                Database.database().reference().child("users").child(userId).setValue(userData)
+                Database.database().reference().child("usernames").child("username").setValue(userData)
+                
+                // router user to main screen
+                let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let homeVC = mainStoryboard.instantiateViewController(withIdentifier: "HomeViewController")
+                let navVC = UINavigationController(rootViewController: homeVC)
+                let window = UIApplication.shared.connectedScenes.flatMap { ($0 as? UIWindowScene)?.windows ?? []}.first {$0.isKeyWindow}
+                window?.rootViewController = navVC
+            }
         }
     }
 }
