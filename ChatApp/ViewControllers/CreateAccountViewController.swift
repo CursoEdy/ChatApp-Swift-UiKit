@@ -103,7 +103,7 @@ class CreateAccountViewController: UIViewController {
         }
         
         showLoading()
-        Database.database().reference().child("usernames").child("username").observeSingleEvent(of: .value) { snapshot in
+        Database.database().reference().child("usernames").child(username).observeSingleEvent(of: .value) { snapshot in
             guard !snapshot.exists() else {
                 self.presentErroAlert(title: "username in use", message: "Please try a different username")
                 self.removeLoading()
@@ -114,7 +114,21 @@ class CreateAccountViewController: UIViewController {
                 self.removeLoading()
                 if let error = error {
                     print(error.localizedDescription)
-                    self.presentErroAlert(title: "Create account failed", message: "Something went wrong. Please try again later.")
+                    var errorMessage = "Something went wrong. Please try again later."
+                    if let authErro = AuthErrorCode(rawValue: error._code) {
+                        switch authErro {
+                        case .emailAlreadyInUse:
+                            errorMessage = "Email already in use."
+                        case .invalidEmail:
+                            errorMessage = "Invalid email format."
+                        case .weakPassword:
+                            errorMessage = "Password too weak."
+                        default:
+                            break
+                        }
+                    }
+                    self.presentErroAlert(title: "Create account failed", message: errorMessage)
+                    return
                 }
                 guard let result = result else {
                     self.presentErroAlert(title: "Create account failed", message: "Something went wrong. Please try again later.")
