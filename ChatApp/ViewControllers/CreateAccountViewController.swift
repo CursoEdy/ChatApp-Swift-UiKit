@@ -141,13 +141,17 @@ class CreateAccountViewController: UIViewController {
                     "username": username
                 ]
                 Database.database().reference().child("users").child(userId).setValue(userData)
-                Database.database().reference().child("usernames").child("username").setValue(userData)
+                Database.database().reference().child("usernames").child(username).setValue(userData)
+                
+                let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                changeRequest?.displayName = username
+                changeRequest?.commitChanges()
                 
                 // router user to main screen
                 let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let homeVC = mainStoryboard.instantiateViewController(withIdentifier: "HomeViewController")
                 let navVC = UINavigationController(rootViewController: homeVC)
-                let window = UIApplication.shared.connectedScenes.flatMap { ($0 as? UIWindowScene)?.windows ?? []}.first {$0.isKeyWindow}
+                let window = UIApplication.shared.connectedScenes.flatMap { ($0 as? UIWindowScene)?.windows ?? [] }.first {$0.isKeyWindow}
                 window?.rootViewController = navVC
             }
         }
