@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		74497D822DB172CA00621923 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74497D812DB172CA00621923 /* ProfileViewController.swift */; };
 		748228F12DA583070079C921 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 748228F02DA583070079C921 /* LoadingView.xib */; };
 		748228F32DA583480079C921 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748228F22DA583480079C921 /* LoadingView.swift */; };
 		748C5E982D96DB5D00763BB3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 748C5E972D96DB5D00763BB3 /* GoogleService-Info.plist */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		74497D812DB172CA00621923 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		748228F02DA583070079C921 /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		748228F22DA583480079C921 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		748C5E972D96DB5D00763BB3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				E13089C52A69FBF400C1889D /* SignInViewController.swift */,
 				E13089C72A69FC1700C1889D /* CreateAccountViewController.swift */,
 				E13089C92A69FCD300C1889D /* HomeViewController.swift */,
+				74497D812DB172CA00621923 /* ProfileViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 				748228F32DA583480079C921 /* LoadingView.swift in Sources */,
 				E13089C62A69FBF400C1889D /* SignInViewController.swift in Sources */,
 				E12D57D72A6B3FD600D556EF /* PrimaryButton.swift in Sources */,
+				74497D822DB172CA00621923 /* ProfileViewController.swift in Sources */,
 				E13089CA2A69FCD300C1889D /* HomeViewController.swift in Sources */,
 				74E7DA9D2D9D9ADF00EF8527 /* extension+UiViewController.swift in Sources */,
 				E13089AA2A69EDB600C1889D /* SceneDelegate.swift in Sources */,

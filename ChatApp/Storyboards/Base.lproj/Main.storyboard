@@ -58,17 +58,98 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xl7-uZ-YQD">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="I9M-yy-xwm">
+                        <barButtonItem key="leftBarButtonItem" image="person.fill" catalog="system" id="I9M-yy-xwm">
                             <connections>
-                                <action selector="logoutButtonTapped:" destination="zVA-oo-IMP" id="6RD-9J-M9H"/>
+                                <action selector="profileButtonTapped:" destination="zVA-oo-IMP" id="FBU-as-Dxx"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="aw1-dI-lXv"/>
                     </navigationItem>
+                    <connections>
+                        <segue destination="G7S-v1-q8z" kind="presentation" identifier="ProfileSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="Nsq-XF-bim"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QZW-ou-Vi7" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="865" y="4"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="vuJ-yn-KNg">
+            <objects>
+                <viewController id="G7S-v1-q8z" customClass="ProfileViewController" customModule="ChatApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wDr-BT-GrA">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DnO-Op-ZRa">
+                                <rect key="frame" x="25" y="276" width="343" height="300"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Mk-kf-2fN">
+                                        <rect key="frame" x="111.66666666666666" y="25" width="120" height="120"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="E6j-ct-JqO"/>
+                                            <constraint firstAttribute="height" constant="120" id="tqa-Gj-LTe"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Qf-VG-kcC">
+                                        <rect key="frame" x="20" y="165" width="303" height="27"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJr-p8-0Wq" customClass="PrimaryButton" customModule="ChatApp" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="235" width="303" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="7MO-2O-QPG"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Logout"/>
+                                        <connections>
+                                            <action selector="logoutButtonTapped:" destination="G7S-v1-q8z" eventType="touchUpInside" id="EmG-2v-nfB"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="VRu-Jq-wM6">
+                                        <rect key="frame" x="211.66666666666666" y="126.00000000000001" width="30" height="27.666666666666671"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="SXg-su-UxI"/>
+                                            <constraint firstAttribute="width" constant="30" id="wVH-3h-L9t"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="tJr-p8-0Wq" secondAttribute="bottom" constant="25" id="00v-nS-HDd"/>
+                                    <constraint firstAttribute="trailing" secondItem="4Qf-VG-kcC" secondAttribute="trailing" constant="20" id="Cdy-dE-NSp"/>
+                                    <constraint firstItem="9Mk-kf-2fN" firstAttribute="top" secondItem="DnO-Op-ZRa" secondAttribute="top" constant="25" id="DYb-B2-3PS"/>
+                                    <constraint firstItem="tJr-p8-0Wq" firstAttribute="leading" secondItem="DnO-Op-ZRa" secondAttribute="leading" constant="20" id="Rdf-61-SkG"/>
+                                    <constraint firstItem="4Qf-VG-kcC" firstAttribute="top" secondItem="9Mk-kf-2fN" secondAttribute="bottom" constant="20" id="Rnd-84-5jL"/>
+                                    <constraint firstItem="9Mk-kf-2fN" firstAttribute="centerX" secondItem="DnO-Op-ZRa" secondAttribute="centerX" id="T58-U5-bu6"/>
+                                    <constraint firstItem="4Qf-VG-kcC" firstAttribute="leading" secondItem="DnO-Op-ZRa" secondAttribute="leading" constant="20" id="ViN-i6-g2G"/>
+                                    <constraint firstItem="VRu-Jq-wM6" firstAttribute="bottom" secondItem="9Mk-kf-2fN" secondAttribute="bottom" constant="10" id="gFq-g8-Sm5"/>
+                                    <constraint firstAttribute="height" constant="300" id="gbU-Le-cRI"/>
+                                    <constraint firstAttribute="trailing" secondItem="tJr-p8-0Wq" secondAttribute="trailing" constant="20" id="i4l-ep-PH9"/>
+                                    <constraint firstItem="VRu-Jq-wM6" firstAttribute="leading" secondItem="9Mk-kf-2fN" secondAttribute="trailing" constant="-20" id="kat-iV-a65"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hue-6C-N5R"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.52367032284768211" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DnO-Op-ZRa" firstAttribute="centerY" secondItem="wDr-BT-GrA" secondAttribute="centerY" id="Hya-HY-JiO"/>
+                            <constraint firstItem="DnO-Op-ZRa" firstAttribute="leading" secondItem="hue-6C-N5R" secondAttribute="leading" constant="25" id="MGs-2v-xHk"/>
+                            <constraint firstItem="hue-6C-N5R" firstAttribute="trailing" secondItem="DnO-Op-ZRa" secondAttribute="trailing" constant="25" id="stN-51-sce"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="avatarImageView" destination="9Mk-kf-2fN" id="OAN-7P-bFX"/>
+                        <outlet property="containerView" destination="DnO-Op-ZRa" id="sr8-2d-ypN"/>
+                        <outlet property="usernameLabel" destination="4Qf-VG-kcC" id="cl4-q9-Is5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mZY-RJ-UKG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1733.5877862595419" y="3.5211267605633805"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4Ps-Qt-YHo">
@@ -90,6 +171,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera.fill" catalog="system" width="128" height="93"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
